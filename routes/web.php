@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/criar/usuario',[LoginController::class,'create'])->name('criarusuario');
+
+Route::post('/salvar/usuario',[LoginController::class,'save'])->name('salvarusuario');
+
+
+Route::get('/login',[LoginController::class,'get'])->name('login');
+
+Route::get('/login/usuario',[LoginController::class,'getusuario'])->name('loginusuario');
