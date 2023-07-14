@@ -22,7 +22,7 @@ Route::get('/criar/usuario',[LoginController::class,'create'])->name('criarusuar
 
 Route::post('/salvar/usuario',[LoginController::class,'save'])->name('salvarusuario');
 
-
+Route::get('/home',[LoginController::class,'home'])->name('home');
 Route::get('/login',[LoginController::class,'get'])->name('login');
 
-Route::get('/login/usuario',[LoginController::class,'getusuario'])->name('loginusuario');
+Route::post('/login/usuario',[LoginController::class,'getusuario'])->name('loginusuario');

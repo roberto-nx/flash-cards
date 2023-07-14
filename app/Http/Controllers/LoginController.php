@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -32,8 +34,28 @@ class LoginController extends Controller
        
         return view('login');
     }
-    public function getusuario(){
+    public function getusuario(Request $request){
+   
+        $validate=$request->validate([
+            'email'=>'required|email:rfc,dns',
+            'password'=>'required'
+
+        ]);
+
+        if (Auth::attempt($validate)) {
+            $request->session()->regenerate();
+ 
+            return redirect()->intended('home');
+        }
+        $msg='usuario ou senha invalida';
+        return view('login',compact('msg'));
+    }
+
+    public function home(){
        
-        return view('login');
+
+
+        
+        return view('home');
     }
 }

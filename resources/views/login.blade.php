@@ -18,7 +18,7 @@
         <input type="email" name="email" >
         <label for="password"></label>
         <input type="password" name="password">
-        <button type="button">Enviar</button>
+        <button type="submit">Enviar</button>
     </form>
     <a href="{{route('criarusuario')}}">cadastrar<a>
 
