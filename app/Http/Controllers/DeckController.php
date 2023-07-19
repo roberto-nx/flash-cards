@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Deck;
-use App\Models\Card;
 use Illuminate\Http\Request;
 
 
@@ -15,9 +14,9 @@ class DeckController extends Controller
      */
     public function index()
     {
-        $decks=deck::all()
-        ->paginate(10);        
-        return view('home',$decks);
+
+        $decks=Deck::all();
+        return view('home',['decks'=>$decks]);
     }
 
     /**
@@ -25,7 +24,6 @@ class DeckController extends Controller
      */
     public function create()
     {
-
         return view('create');
     }
 
@@ -34,8 +32,7 @@ class DeckController extends Controller
      */
     public function store(Request $request)
     {
-        try {
-        $createdeck=Deck::create($request->all());
+        try {  
         $yourApiKey = getenv('YOUR_API_KEY');
         $client = OpenAI::client($yourApiKey);
         $create_card_ia = $client->completions()->create([
@@ -47,16 +44,15 @@ class DeckController extends Controller
         $savecard=['deck_id=>$createdeck->id'];
         for ($i=0; $i < $request->amount; $i++) {
             array($arrayamouts,i);
-            
         }
         foreach($arrayamouts as $arrayamout ){
             array($savecard,'card$arrayamout=>$result[]');
             array_shift($result);
-            
         }
-        $createcard=Card::create([
-            'deck_id'=>$createdeck->id,
-
+        $createcard=Deck::create([
+            'deck_id'=>$request->title,
+            'description'=>$request->desription,
+            $result
         ]
         );
 
@@ -67,6 +63,10 @@ class DeckController extends Controller
     
     }
 
+    public function jogar($id){
+        $deck=Deck::findorfail($id);
+        return view('jogar',compact('deck'));
+       }
     /**
      * Display the specified resource.
      */
@@ -102,9 +102,5 @@ class DeckController extends Controller
     }
 
    
-    public function jogar(){
-       
-        $deck=Deck::where('id', $id)->first();
-         return view('jogar',$deck);
-       }
+    
 }
