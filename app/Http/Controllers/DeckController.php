@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Deck;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 
 
@@ -65,8 +66,13 @@ class DeckController extends Controller
     }
     
     public function jogar($id){
-        $deck=Deck::where('id',$id)->first();
-        
+        $deck=Deck::where('id',$id)
+        ->first();
+        $deck=collect($deck)
+        ->filter(function ( $deck) {
+            return $deck!="null";
+        });
+      
         
         return view('jogar',['deck'=>$deck]);
        }

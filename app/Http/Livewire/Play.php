@@ -23,33 +23,38 @@ class Play extends Component
     
     public function mount()
     {
-       
+        
+        if(!empty($this->deck['card1'])){
         $this->pergunta=$this->deck['card1'];
         $this->resposta=$this->deck['card2'];
     }
+       else
+       $this->next();
+       
+    }
     public function next()
     {
-       $this->count++;
+        $this->count++;
+        if(!empty($this->deck['card'.$this->count])){
        $this->pergunta=$this->deck['card'.$this->count];
        $this->count++;
        $this->resposta=$this->deck['card'.$this->count];
+        }
+        else{
+        $this->count++;
+        $this->next();};
     }
     public function previous()
     {
        $this->count=$this->count-3;
+       if(!empty($this->deck['card'.$this->count])){
        $this->pergunta=$this->deck['card'.$this->count];
        $this->count++;
-       $this->resposta=$this->deck['card'.$this->count];
-      
-       
-       
-      
-       
-       
-       
-        
-      
-        
+       $this->resposta=$this->deck['card'.$this->count];  
+       }else{
+        $this->count++;
+        $this->previous();
+       }
     }
     public function show()
     {
@@ -64,9 +69,10 @@ class Play extends Component
     {
       
        $delete=Deck::find($this->deck["id"]);
-       dd($delete);
-       $delete->{'card'.$this->count}='test4';
+       $delete->{'card'.$this->count--}="null";
+       $delete->{'card'.$this->count}="null";
        $delete->save();
+       $this->count++;
        
     }
 }

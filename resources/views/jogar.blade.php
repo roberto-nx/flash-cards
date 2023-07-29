@@ -14,7 +14,7 @@
 <form action="{{route('deletardeck',$deck['id'])}}" method="Post">
 @csrf
 @method('DELETE')
-<button type="submit" >deletar</button>
+<button type="submit" >deletar deck</button>
 </form>
 </body>
 <script>

@@ -10,7 +10,9 @@
 <button type="button" wire:click="show">mostrar resposta</button>
 @endif
 <button type="button" wire:click="delete">deletar pergunta</button>
+@if($count<=48)
 <button type="button" wire:click="next">proxima pergunta</button>
+@endif
 @if($count>2)
 <button type="button" wire:click="previous"> pergunta anterior</button>
 @endif
