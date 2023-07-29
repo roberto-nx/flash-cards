@@ -16,6 +16,7 @@ class DeckController extends Controller
     {
 
         $decks=Deck::all();
+
         return view('home',['decks'=>$decks]);
     }
 
@@ -62,10 +63,12 @@ class DeckController extends Controller
         }
     
     }
-
+    
     public function jogar($id){
-        $deck=Deck::findorfail($id);
-        return view('jogar',compact('deck'));
+        $deck=Deck::where('id',$id)->first();
+        
+        
+        return view('jogar',['deck'=>$deck]);
        }
     /**
      * Display the specified resource.
