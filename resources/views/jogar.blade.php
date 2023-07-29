@@ -11,6 +11,11 @@
 <body>
 @livewire('play',['deck' => $deck])
 @livewireScripts
+<form action="{{route('deletardeck',$deck['id'])}}" method="Post">
+@csrf
+@method('DELETE')
+<button type="submit" >deletar</button>
+</form>
 </body>
 <script>
 

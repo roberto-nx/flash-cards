@@ -99,7 +99,8 @@ class DeckController extends Controller
      */
     public function destroy($id)
     {
-        $delete = Task::where('id', $id)->delete();
+        
+        $delete = Deck::where('id', $id)->delete();
         return redirect('home');
 
     }
