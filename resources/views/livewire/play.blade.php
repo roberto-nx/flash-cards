@@ -9,8 +9,11 @@
 @else
 <button type="button" wire:click="show">mostrar resposta</button>
 @endif
-
+<button type="button" wire:click="delete">deletar pergunta</button>
 <button type="button" wire:click="next">proxima pergunta</button>
-
+@if($count>2)
+<button type="button" wire:click="previous"> pergunta anterior</button>
+@endif
+<h3>{{$count}}</h3>
 </div>
 
