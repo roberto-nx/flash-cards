@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Deck;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -16,8 +17,8 @@ class DeckController extends Controller
     public function index()
     {
 
-        $decks=Deck::all();
-
+        $id = Auth::id();
+        $decks=Deck::where('user_id', $id)->get();
         return view('home',['decks'=>$decks]);
     }
 
@@ -26,7 +27,7 @@ class DeckController extends Controller
      */
     public function create()
     {
-        return view('create');
+        return view('create_deck');
     }
 
     /**

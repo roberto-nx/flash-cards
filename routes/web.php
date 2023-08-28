@@ -16,14 +16,13 @@ use App\Http\Controllers\DeckController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::get('/criar/usuario',[LoginController::class,'create'])->name('criarusuario');
 Route::post('/salvar/usuario',[LoginController::class,'save'])->name('salvarusuario');
 Route::get('/home',[DeckController::class,'index'])->name('home');
-Route::get('/login',[LoginController::class,'get'])->name('login');
+Route::get('/',[LoginController::class,'get'])->name('login');
 Route::post('/login/usuario',[LoginController::class,'getusuario'])->name('loginusuario');
 Route::get('/jogar/{id}',[DeckController::class,'jogar'])->name('jogar');
-Route::post('/criar/deck',[DeckController::class,'create'])->name('criardeck');
+Route::get('/criar/deck',[DeckController::class,'create'])->name('criardeck');
+Route::post('/gerar/deck',[DeckController::class,'store'])->name('gerardeck');
 Route::delete('/deletar/deck/{id}',[DeckController::class,'destroy'])->name('deletardeck');

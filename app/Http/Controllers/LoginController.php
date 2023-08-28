@@ -43,7 +43,8 @@ class LoginController extends Controller
 
         if (Auth::attempt($validate)) {
             $request->session()->regenerate();
-            return redirect()->intended('home');
+            return redirect('home');
+            
         }
         $msg='usuario ou senha invalida';
         return view('login',compact('msg'));
