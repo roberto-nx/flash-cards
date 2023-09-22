@@ -11,7 +11,7 @@
 @isset($decks)
 <h1 class="flex justify-center bg-emerald-400">baralhos</h1>
 <br>
-<div class="grid grid-cols-3 gap-4 justify-items-center ">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 justify-items-center ">
 @foreach ($decks as $deck)
 <div class="flex flex-col   items-center   h-101 w-64 p-4  bg-neutral-50 shadow-2xl">
 <h3>Nome do baralho:{{$deck->title}}</h3>
