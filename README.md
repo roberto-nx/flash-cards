@@ -6,6 +6,7 @@
 * pagina de criação de baralho
 * pagina de lista de baralhos criados
 * pagina com o flash card do baralho escolhido
+  
 Para criar um baralho : Digite um nome ao baralho, Digite uma descrição sobre o assunto dos flash-cards como :matemática , português ,inglês ou tópicos ainda mais específicos
 Para jogar selecione o baralho ira aparecer o flash-card com o nome do baralho e a pergunta aparecerá também um botão para mostrar a resposta ou ocultala se estiver a mostra .
 
