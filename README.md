@@ -1,6 +1,6 @@
 # Site de flash-cards gerados por ia
 
-## Neste projeto foi construído um site de flash cards gerados por ia , então este projeto possui as seguintes páginas
+## Neste projeto foi construído um site de flash cards gerados por ia , este projeto possui as seguintes páginas
 . pagina de cadastro de usuário
 . pagina de login
 . pagina de criação de baralho
