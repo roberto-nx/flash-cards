@@ -12,7 +12,7 @@ Para jogar selecione o baralho ira aparecer o flash-card com o nome do baralho e
 
 
 
-foi utilizado o framwork laravel em sua construção, sua autenticação foi feita a partir do sanctum sendo utilizada neste projeto a arquitetura MVC para a comunicação com a ia esta sendo utilizado a biblioteca penai-php/client e para a pagina do flash card esta sendo utilizado o framwork de frot-end livewire
+Foi utilizado o framwork laravel em sua construção, sua autenticação foi feita a partir do sanctum sendo utilizada neste projeto a arquitetura MVC para a comunicação com a ia esta sendo utilizado a biblioteca penai-php/client e para a pagina do flash card esta sendo utilizado o framwork de frot-end livewire
 
 ### Imagens do Front End 
 <img src="img/Captura de Tela (16).png">
